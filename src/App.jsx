@@ -1,18 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   BookOpen, CheckSquare, Clock, Calendar as CalendarIcon, 
   Brain, LayoutDashboard, Plus, Trash2, FileText, Search, 
   ChevronLeft, ChevronRight, MapPin, X, BookMarked, 
   Image as ImageIcon, AlertCircle, DollarSign, TrendingUp, 
   TrendingDown, Target, Coffee, Server, Play, Pause, 
-  RotateCcw, Wifi, Loader2, PieChart
+  RotateCcw, Wifi, Loader2
 } from 'lucide-react';
 
 // --- CONFIGURATION ---
-// ⚠️ IMPORTANT: Replace this URL with your Railway Backend Domain
-// Go to Railway -> Click Backend Service -> Settings -> Domains
-// Example: 'https://dse-backend-production.up.railway.app/api'
-const API_URL = "https://dse-app-backend-production.up.railway.app/api"; 
+// ⚠️ IMPORTANT: Replace this with your actual Railway Backend URL
+// It should look like: 'https://dse-backend-production.up.railway.app/api'
+const API_URL = 'https://dse-backend-production.up.railway.app/api';
 
 // --- TIMETABLE DATA ---
 const TIME_SLOTS = [
@@ -73,7 +72,7 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
     <div className="w-20 md:w-64 bg-slate-900 text-slate-300 h-screen fixed left-0 top-0 flex flex-col shadow-2xl z-50 transition-all duration-300">
       <div className="p-6 border-b border-slate-800 hidden md:block">
         <h1 className="text-2xl font-black text-white tracking-tight">DSE <span className="text-blue-500">Fighter</span></h1>
-        <p className="text-xs mt-2 flex items-center gap-2 text-emerald-400 font-mono bg-emerald-400/10 px-2 py-1 rounded w-fit"><Server size={10}/> Railway Linked</p>
+        <p className="text-xs mt-2 flex items-center gap-2 text-emerald-400 font-mono bg-emerald-400/10 px-2 py-1 rounded w-fit"><Server size={10}/> Railway DB</p>
       </div>
       <nav className="flex-1 p-3 space-y-1 overflow-y-auto custom-scrollbar">
         {menuItems.map((item) => (
@@ -350,7 +349,6 @@ const EventCalendar = () => {
             const day = i+1; 
             const evs = events.filter(e => isSameDate(e.event_date, curDate, day));
             const isToday = day === today.getDate() && curDate.getMonth() === today.getMonth() && curDate.getFullYear() === today.getFullYear();
-            
             return (
                 <div key={day} onClick={()=>{setSelDay(day);setModalOpen(true)}} className={`rounded-xl p-2 cursor-pointer transition-all relative group border ${isToday ? 'bg-blue-50 border-blue-200 ring-2 ring-blue-500 ring-offset-2 z-10' : 'bg-white border-slate-100 hover:border-blue-300 hover:shadow-md'}`}>
                     <div className={`text-sm font-bold mb-1 w-6 h-6 flex items-center justify-center rounded-full ${isToday ? 'bg-blue-600 text-white' : 'text-slate-600'}`}>{day}</div>
