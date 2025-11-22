@@ -32,7 +32,7 @@ import {
 } from "lucide-react";
 
 // --- CONFIGURATION ---
-const API_URL = "https://dse-backend.onrender.com/api";
+const API_URL = "https://dse-app.onrender.com/";
 
 // --- TIMETABLE DATA ---
 const TIME_SLOTS = [
