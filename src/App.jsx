@@ -31,8 +31,31 @@ import {
   PieChart,
 } from "lucide-react";
 
-// --- CONFIGURATION ---
-const API_URL = 'https://dse-backend-api.vercel.app/api';
+
+// --- FIREBASE IMPORTS ---
+import { initializeApp } from 'firebase/app';
+import { 
+  getAuth, 
+  signInAnonymously, 
+  onAuthStateChanged,
+  signInWithCustomToken
+} from 'firebase/auth';
+import { 
+  getFirestore, 
+  collection, 
+  addDoc, 
+  deleteDoc, 
+  updateDoc, 
+  doc, 
+  onSnapshot 
+} from 'firebase/firestore';
+
+// --- FIREBASE CONFIGURATION ---
+const firebaseConfig = JSON.parse(__firebase_config);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const appId = typeof __app_id !== 'undefined' ? __app_id : 'dse-survival-kit';
 
 // --- TIMETABLE DATA ---
 const TIME_SLOTS = [
