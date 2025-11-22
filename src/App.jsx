@@ -12,7 +12,7 @@ import {
 // ⚠️ IMPORTANT: Replace this URL with your Railway Backend Domain
 // Go to Railway -> Click Backend Service -> Settings -> Domains
 // Example: 'https://dse-backend-production.up.railway.app/api'
-const API_URL = 'https://YOUR-BACKEND-URL.up.railway.app/api'; 
+const API_URL = "https://dse-app-backend-production.up.railway.app/api; 
 
 // --- TIMETABLE DATA ---
 const TIME_SLOTS = [
